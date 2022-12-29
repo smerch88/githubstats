@@ -3,7 +3,7 @@ export const Form = ({ handleSubmit, inputValue, setInputValue }) => {
     <div>
       <form onSubmit={handleSubmit}>
         <button type="submit">
-          <span>1</span>
+          <span>Find!</span>
         </button>
         <input
           type="text"
