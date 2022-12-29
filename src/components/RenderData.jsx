@@ -9,28 +9,28 @@ export const RenderData = ({ userData, followingData, followersData }) => {
       <p>{userData.bio}</p>
       <p>Followers count: {userData.followers}</p>
       <ul>
-        {followersData.map(user => (
-          <li key={user.id}>
+        {followersData.map(followerUser => (
+          <li key={followerUser.id}>
             <a
-              href={'https://github.com/' + user.login}
+              href={'https://github.com/' + followerUser.login}
               rel="noopener noreferrer"
               target="_blank"
             >
-              {user.login}
+              {followerUser.login}
             </a>
           </li>
         ))}
       </ul>
       <p>Following users count: {userData.following}</p>
       <ul>
-        {followingData.map(user => (
-          <li key={user.id}>
+        {followingData.map(followingUser => (
+          <li key={followingUser.id}>
             <a
-              href={'https://github.com/' + user.login}
+              href={'https://github.com/' + followingUser.login}
               rel="noopener noreferrer"
               target="_blank"
             >
-              {user.login}
+              {followingUser.login}
             </a>
           </li>
         ))}
