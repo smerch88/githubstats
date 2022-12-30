@@ -36,6 +36,7 @@ export const App = () => {
         setArrayOfUsers([...arrayOfUsers, userData]);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userData]);
 
   const handleSubmit = event => {

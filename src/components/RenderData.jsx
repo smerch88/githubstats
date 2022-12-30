@@ -42,6 +42,7 @@ export const RenderData = ({ userData, deleteUser }) => {
       }
     }
     fetchFollowers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [displayFollowers]);
 
   useEffect(() => {
@@ -52,6 +53,7 @@ export const RenderData = ({ userData, deleteUser }) => {
       }
     }
     fetchFolling();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [displayFollowing]);
 
   useEffect(() => {
@@ -62,6 +64,7 @@ export const RenderData = ({ userData, deleteUser }) => {
       }
     }
     fetchRepos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [displayRepos]);
 
   return (
