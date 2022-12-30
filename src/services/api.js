@@ -3,27 +3,19 @@ import axios from 'axios';
 export const fetchUser = async USER => {
   try {
     const { data } = await axios.get(`https://api.github.com/users/${USER}`);
+    if (data.code === 404) {
+      throw new Error('Not Found');
+    }
     return data;
   } catch (error) {
     return error.message;
   }
 };
 
-export const fetchFollowingUrl = async USER => {
+export const fetchCategory = async (USER, category) => {
   try {
     const { data } = await axios.get(
-      `https://api.github.com/users/${USER}/following`
-    );
-    return data;
-  } catch (error) {
-    return error.message;
-  }
-};
-
-export const fetchFollowersUrl = async USER => {
-  try {
-    const { data } = await axios.get(
-      `https://api.github.com/users/${USER}/followers`
+      `https://api.github.com/users/${USER}/${category}`
     );
     return data;
   } catch (error) {
