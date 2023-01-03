@@ -4,6 +4,8 @@ import { fetchCategory } from '../services/api.js';
 import { RenderFollowers } from './RenderFollowers.jsx';
 import { RenderFollowing } from './RenderFollowing.jsx';
 import { RenderRepos } from './RenderRepos.jsx';
+import { Button } from '../styles/CommonStyles';
+import { Card, ImgWrapper, Bio } from 'styles/RenderDataStyles.js';
 
 export const RenderData = ({ userData, deleteUser }) => {
   console.log(userData);
@@ -60,9 +62,18 @@ export const RenderData = ({ userData, deleteUser }) => {
   }, [displayRepos]);
 
   return (
-    <>
-      <img src={userData.avatar_url} alt="" width="100px" height="100px" />
-      <p>{userData.bio}</p>
+    <Card>
+      <ImgWrapper>
+        <img
+          src={userData.avatar_url}
+          alt={userData.login}
+          width="100px"
+          height="100px"
+        />
+      </ImgWrapper>
+      <Bio>
+        <p>Bio: {userData.bio}</p>
+      </Bio>
       <RenderFollowers
         userData={userData}
         handleFollowersButtonClick={handleFollowersButtonClick}
@@ -81,9 +92,7 @@ export const RenderData = ({ userData, deleteUser }) => {
         handleReposButtonClick={handleReposButtonClick}
         reposData={reposData}
       />
-      <button color="red" onClick={() => deleteUser(userData.id)}>
-        Delete User
-      </button>
-    </>
+      <Button onClick={() => deleteUser(userData.id)}>Delete User</Button>
+    </Card>
   );
 };

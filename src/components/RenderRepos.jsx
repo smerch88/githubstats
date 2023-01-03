@@ -1,3 +1,5 @@
+import { Button, Ul } from '../styles/CommonStyles';
+
 export const RenderRepos = ({
   userData,
   displayRepos,
@@ -7,9 +9,11 @@ export const RenderRepos = ({
   return (
     <>
       <p>Repos: {userData.public_repos}</p>
-      <button onClick={handleReposButtonClick}>Show 5 Repos</button>
+      <Button primary onClick={handleReposButtonClick}>
+        Show 5 Repos
+      </Button>
       {displayRepos && (
-        <ul>
+        <Ul>
           {reposData.slice(0, 5).map(repo => (
             <li key={repo.id}>
               <a
@@ -21,7 +25,7 @@ export const RenderRepos = ({
               </a>
             </li>
           ))}
-        </ul>
+        </Ul>
       )}
     </>
   );

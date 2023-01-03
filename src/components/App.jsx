@@ -3,6 +3,7 @@ import { fetchUser } from '../services/api.js';
 import { Form } from './Form.jsx';
 import { RenderData } from './RenderData.jsx';
 import GlobalStyle from '../globalStyles';
+import { CardsWrapper, Container } from 'styles/AppStyles.js';
 
 export const App = () => {
   const [userData, setUserData] = useState('');
@@ -44,20 +45,22 @@ export const App = () => {
   };
 
   return (
-    <div>
+    <>
       <GlobalStyle />
-      <Form
-        inputValue={inputValue}
-        handleSubmit={handleSubmit}
-        setInputValue={setInputValue}
-      />
-      <div>
-        {arrayOfUsers.map(user => (
-          <li key={user.id}>
-            <RenderData userData={user} deleteUser={deleteUser} />
-          </li>
-        ))}
-      </div>
-    </div>
+      <Container>
+        <Form
+          inputValue={inputValue}
+          handleSubmit={handleSubmit}
+          setInputValue={setInputValue}
+        />
+        <CardsWrapper>
+          {arrayOfUsers.map(user => (
+            <li key={user.id}>
+              <RenderData userData={user} deleteUser={deleteUser} />
+            </li>
+          ))}
+        </CardsWrapper>
+      </Container>
+    </>
   );
 };

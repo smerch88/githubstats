@@ -1,3 +1,5 @@
+import { Button, Ul } from '../styles/CommonStyles';
+
 export const RenderFollowers = ({
   userData,
   handleFollowersButtonClick,
@@ -7,9 +9,11 @@ export const RenderFollowers = ({
   return (
     <>
       <p>Followers count: {userData.followers}</p>
-      <button onClick={handleFollowersButtonClick}>Show Followers</button>
+      <Button primary onClick={handleFollowersButtonClick}>
+        Show Followers
+      </Button>
       {displayFollowers && (
-        <ul>
+        <Ul>
           {followersData.map(followerUser => (
             <li key={followerUser.id}>
               <a
@@ -21,7 +25,7 @@ export const RenderFollowers = ({
               </a>
             </li>
           ))}
-        </ul>
+        </Ul>
       )}
     </>
   );

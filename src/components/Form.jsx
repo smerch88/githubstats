@@ -1,4 +1,5 @@
-import { UserForm, H1, Input, Button, Label } from '../styles/FormStyles';
+import { UserForm, H1, Input, Label } from '../styles/FormStyles';
+import { Button } from '../styles/CommonStyles';
 
 export const Form = ({ handleSubmit, inputValue, setInputValue }) => {
   return (
@@ -16,7 +17,7 @@ export const Form = ({ handleSubmit, inputValue, setInputValue }) => {
             }}
           />
         </Label>
-        <Button color="indigo" type="submit">
+        <Button type="submit">
           <span>Find!</span>
         </Button>
       </UserForm>
