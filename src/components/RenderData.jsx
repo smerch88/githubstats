@@ -1,17 +1,9 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { fetchCategory } from '../services/api.js';
-import { Button, Card, Image } from '@mantine/core';
-import styled from '@emotion/styled';
-
-const UserCard = styled.div`
-  width: 400px;
-  height: 500px;
-  overflow-y: scroll;
-  padding: 24px;
-  border: 10px solid lightgrey;
-  border-radius: 16px;
-`;
+import { RenderFollowers } from './RenderFollowers.jsx';
+import { RenderFollowing } from './RenderFollowing.jsx';
+import { RenderRepos } from './RenderRepos.jsx';
 
 export const RenderData = ({ userData, deleteUser }) => {
   console.log(userData);
@@ -68,65 +60,30 @@ export const RenderData = ({ userData, deleteUser }) => {
   }, [displayRepos]);
 
   return (
-    <UserCard>
-      <Card.Section>
-        <Image src={userData.avatar_url} alt="" width="100px" height="100px" />{' '}
-      </Card.Section>
+    <>
+      <img src={userData.avatar_url} alt="" width="100px" height="100px" />
       <p>{userData.bio}</p>
-      <p>Followers count: {userData.followers}</p>
-      <Button onClick={handleFollowersButtonClick}>Show Followers</Button>
-      {displayFollowers && (
-        <ul>
-          {followersData.map(followerUser => (
-            <li key={followerUser.id}>
-              <a
-                href={'https://github.com/' + followerUser.login}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                {followerUser.login}
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
-      <p>Following users count: {userData.following}</p>
-      <Button onClick={handleFollowingButtonClick}>Show Following</Button>
-      {displayFollowing && (
-        <ul>
-          {followingData.map(followingUser => (
-            <li key={followingUser.id}>
-              <a
-                href={'https://github.com/' + followingUser.login}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                {followingUser.login}
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
-      <p>Repos: {userData.public_repos}</p>
-      <Button onClick={handleReposButtonClick}>Show 5 Repos</Button>
-      {displayRepos && (
-        <ul>
-          {reposData.slice(0, 5).map(repo => (
-            <li key={repo.id}>
-              <a
-                href={'https://github.com/' + repo.full_name}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                {repo.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
-      <Button color="red" onClick={() => deleteUser(userData.id)}>
+      <RenderFollowers
+        userData={userData}
+        handleFollowersButtonClick={handleFollowersButtonClick}
+        displayFollowers={displayFollowers}
+        followersData={followersData}
+      />
+      <RenderFollowing
+        userData={userData}
+        handleFollowingButtonClick={handleFollowingButtonClick}
+        displayFollowing={displayFollowing}
+        followingData={followingData}
+      />
+      <RenderRepos
+        userData={userData}
+        displayRepos={displayRepos}
+        handleReposButtonClick={handleReposButtonClick}
+        reposData={reposData}
+      />
+      <button color="red" onClick={() => deleteUser(userData.id)}>
         Delete User
-      </Button>
-    </UserCard>
+      </button>
+    </>
   );
 };

@@ -1,10 +1,8 @@
-import { Input, Button } from '@mantine/core';
-
 export const Form = ({ handleSubmit, inputValue, setInputValue }) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <Input
+        <input
           type="text"
           value={inputValue}
           autoFocus
@@ -13,9 +11,9 @@ export const Form = ({ handleSubmit, inputValue, setInputValue }) => {
             setInputValue(event.target.value);
           }}
         />
-        <Button color="indigo" uppercase type="submit">
+        <button color="indigo" type="submit">
           <span>Find!</span>
-        </Button>
+        </button>
       </form>
     </div>
   );
