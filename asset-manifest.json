@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/githubstats/static/js/main.209154ac.js",
+    "main.js": "/githubstats/static/js/main.e5541150.js",
     "index.html": "/githubstats/index.html",
-    "main.209154ac.js.map": "/githubstats/static/js/main.209154ac.js.map"
+    "main.e5541150.js.map": "/githubstats/static/js/main.e5541150.js.map"
   },
   "entrypoints": [
-    "static/js/main.209154ac.js"
+    "static/js/main.e5541150.js"
   ]
 }
