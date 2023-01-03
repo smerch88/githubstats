@@ -13,6 +13,8 @@ const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6, p {
     color: #9498a3;
     text-shadow: 1px 1px 1px #FFF;
+    padding: 0;
+    margin: 8px;
   }
   img {
     display: block;

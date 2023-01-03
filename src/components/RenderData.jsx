@@ -71,6 +71,7 @@ export const RenderData = ({ userData, deleteUser }) => {
           height="100px"
         />
       </ImgWrapper>
+      <h2>Name: {userData.login}</h2>
       <Bio>
         <p>Bio: {userData.bio}</p>
       </Bio>
