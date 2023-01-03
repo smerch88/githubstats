@@ -2,18 +2,7 @@ import { useEffect, useState } from 'react';
 import { fetchUser } from '../services/api.js';
 import { Form } from './Form.jsx';
 import { RenderData } from './RenderData.jsx';
-import styled from '@emotion/styled';
-
-const Cards = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-`;
-
-const Container = styled.div`
-  padding: 24px;
-  margin: 0 auto;
-`;
+import GlobalStyle from '../globalStyles';
 
 export const App = () => {
   const [userData, setUserData] = useState('');
@@ -55,19 +44,20 @@ export const App = () => {
   };
 
   return (
-    <Container>
+    <div>
+      <GlobalStyle />
       <Form
         inputValue={inputValue}
         handleSubmit={handleSubmit}
         setInputValue={setInputValue}
       />
-      <Cards>
+      <div>
         {arrayOfUsers.map(user => (
           <li key={user.id}>
             <RenderData userData={user} deleteUser={deleteUser} />
           </li>
         ))}
-      </Cards>
-    </Container>
+      </div>
+    </div>
   );
 };
