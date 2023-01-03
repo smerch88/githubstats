@@ -11,6 +11,7 @@ export const Form = ({ handleSubmit, inputValue, setInputValue }) => {
             type="text"
             value={inputValue}
             autoFocus
+            required
             placeholder="Search User"
             onChange={event => {
               setInputValue(event.target.value);
