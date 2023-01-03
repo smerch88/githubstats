@@ -5,7 +5,7 @@ import { RenderFollowers } from './RenderFollowers.jsx';
 import { RenderFollowing } from './RenderFollowing.jsx';
 import { RenderRepos } from './RenderRepos.jsx';
 import { Button } from '../styles/CommonStyles';
-import { Card, ImgWrapper, Bio } from 'styles/RenderDataStyles.js';
+import { Card, ImgWrapper, Bio, Login } from 'styles/RenderDataStyles.js';
 
 export const RenderData = ({ userData, deleteUser }) => {
   console.log(userData);
@@ -71,7 +71,9 @@ export const RenderData = ({ userData, deleteUser }) => {
           height="100px"
         />
       </ImgWrapper>
-      <h2>Name: {userData.login}</h2>
+      <a href={userData.html_url}>
+        <Login>Name: {userData.login}</Login>
+      </a>
       <Bio>
         <p>Bio: {userData.bio}</p>
       </Bio>

@@ -22,11 +22,18 @@ export const ImgWrapper = styled.div`
 `;
 
 export const Bio = styled.div`
-  height: 60px;
+  height: 40px;
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
+  }
+`;
+
+export const Login = styled.h2`
+  font-size: 16px;
+  &:hover {
+    opacity: 0.5;
   }
 `;
