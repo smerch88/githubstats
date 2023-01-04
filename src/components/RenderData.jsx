@@ -8,7 +8,6 @@ import { Button } from '../styles/CommonStyles';
 import { Card, ImgWrapper, Bio, Login } from 'styles/RenderDataStyles.js';
 
 export const RenderData = ({ userData, deleteUser }) => {
-  console.log(userData);
   const [displayFollowers, setDisplayFollowers] = useState(false);
   const [displayFollowing, setDisplayFollowing] = useState(false);
   const [displayRepos, setDisplayRepos] = useState(false);

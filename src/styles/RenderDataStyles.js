@@ -24,7 +24,7 @@ export const ImgWrapper = styled.div`
 export const Bio = styled.div`
   height: 40px;
   overflow-y: scroll;
-  -ms-overflow-style: none;
+  /* -ms-overflow-style: none; */
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;

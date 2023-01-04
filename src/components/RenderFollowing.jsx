@@ -9,7 +9,11 @@ export const RenderFollowing = ({
   return (
     <>
       <p>Following users count: {userData.following}</p>
-      <Button primary onClick={handleFollowingButtonClick}>
+      <Button
+        primary
+        onClick={handleFollowingButtonClick}
+        disabled={!userData.following}
+      >
         Show Following
       </Button>
       {displayFollowing && (
@@ -17,7 +21,7 @@ export const RenderFollowing = ({
           {followingData.map(followingUser => (
             <li key={followingUser.id}>
               <a
-                href={'https://github.com/' + followingUser.login}
+                href={`https://github.com/${followingUser.login}`}
                 rel="noopener noreferrer"
                 target="_blank"
               >

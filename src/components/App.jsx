@@ -7,7 +7,6 @@ import { CardsWrapper, Container } from 'styles/AppStyles.js';
 
 export const App = () => {
   const [userData, setUserData] = useState('');
-  const [inputValue, setInputValue] = useState('');
   const [arrayOfUsers, setArrayOfUsers] = useState(() => {
     const localUsers = JSON.parse(localStorage.getItem('arrayOfUsers'));
     if (localUsers) {
@@ -29,12 +28,14 @@ export const App = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userData]);
 
-  const handleSubmit = event => {
-    event.preventDefault();
-
+  const handleSubmit = inputValue => {
     async function fetchUserData() {
-      const result = await fetchUser(inputValue);
-      setUserData(result);
+      try {
+        const result = await fetchUser(inputValue);
+        setUserData(result);
+      } catch (error) {
+        console.log(error);
+      }
       // setUserData(result.sort((a, b) => a.created_at - b.created_at));
     }
     fetchUserData();
@@ -48,11 +49,7 @@ export const App = () => {
     <>
       <GlobalStyle />
       <Container>
-        <Form
-          inputValue={inputValue}
-          handleSubmit={handleSubmit}
-          setInputValue={setInputValue}
-        />
+        <Form handleSubmit={handleSubmit} />
         <CardsWrapper>
           {arrayOfUsers.map(user => (
             <li key={user.id}>

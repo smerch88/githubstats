@@ -19,12 +19,17 @@ export const Button = styled.button`
     box-shadow: -2px -2px 5px #fffe, 2px 2px 5px #babecc;
   }
 
-  &:active {
+  &:active,
+  :disabled {
     box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fffe;
   }
   display: block;
   width: 100%;
   color: ${props => (props.primary ? 'black' : '#ae1100')};
+
+  &:disabled {
+    pointer-events: none;
+  }
 `;
 
 export const Ul = styled.ul`

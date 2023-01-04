@@ -1,11 +1,23 @@
 import { UserForm, H1, Input, Label } from '../styles/FormStyles';
 import { Button } from '../styles/CommonStyles';
+import { useState } from 'react';
 
-export const Form = ({ handleSubmit, inputValue, setInputValue }) => {
+export const Form = ({ handleSubmit }) => {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleFormSubmit = event => {
+    event.preventDefault();
+    handleSubmit(inputValue);
+  };
+
+  const handleSetInputValue = event => {
+    setInputValue(event.target.value);
+  };
+
   return (
     <div>
       <H1>Find a GitHUB User</H1>
-      <UserForm onSubmit={handleSubmit}>
+      <UserForm onSubmit={handleFormSubmit}>
         <Label>
           <Input
             type="text"
@@ -13,9 +25,7 @@ export const Form = ({ handleSubmit, inputValue, setInputValue }) => {
             autoFocus
             required
             placeholder="Search User"
-            onChange={event => {
-              setInputValue(event.target.value);
-            }}
+            onChange={handleSetInputValue}
           />
         </Label>
         <Button type="submit">
