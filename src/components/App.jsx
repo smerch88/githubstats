@@ -4,6 +4,7 @@ import { Form } from './Form.jsx';
 import { RenderData } from './RenderData.jsx';
 import GlobalStyle from '../globalStyles';
 import { CardsWrapper, Container } from 'styles/AppStyles.js';
+import { Store } from 'react-notifications-component';
 
 export const App = () => {
   const [userData, setUserData] = useState('');
@@ -35,6 +36,19 @@ export const App = () => {
         setUserData(result);
       } catch (error) {
         console.log(error);
+        Store.addNotification({
+          title: 'Erorr!',
+          message: 'User not found',
+          type: 'danger',
+          insert: 'top',
+          container: 'top-right',
+          animationIn: ['animate__animated', 'animate__fadeIn'],
+          animationOut: ['animate__animated', 'animate__fadeOut'],
+          dismiss: {
+            duration: 1000,
+            onScreen: true,
+          },
+        });
       }
       // setUserData(result.sort((a, b) => a.created_at - b.created_at));
     }
