@@ -7,6 +7,6 @@ import 'react-notifications-component/dist/theme.css';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div className="app-container">
     <ReactNotifications />
-    <App />{' '}
+    <App />
   </div>
 );
